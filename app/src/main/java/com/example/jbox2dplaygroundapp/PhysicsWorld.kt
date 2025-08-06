@@ -20,14 +20,14 @@ class PhysicsWorld {
     val particles = mutableListOf<Particle>()
 
     init {
-        world.setContactListener(ContactListener { a, b ->
+        world.setContactListener(ContactListenerManager { a, b ->
             val (particleBody, wallBody) = when {
                 a.userData == "breakable" && b.userData == "wall" -> a to b
                 b.userData == "breakable" && a.userData == "wall" -> b to a
-                else -> return@ContactListener
+                else -> return@ContactListenerManager
             }
 
-            if (destructionQueue.contains(particleBody)) return@ContactListener
+            if (destructionQueue.contains(particleBody)) return@ContactListenerManager
 
             destructionQueue.add(particleBody)
 
