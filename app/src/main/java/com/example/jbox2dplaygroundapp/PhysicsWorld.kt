@@ -127,7 +127,7 @@ class PhysicsWorld {
             particles.removeAll { it.body == body }
         }
         destructionQueue.clear()
-        
+
         spawnQueue.forEach { it.invoke() }
         spawnQueue.clear()
     }

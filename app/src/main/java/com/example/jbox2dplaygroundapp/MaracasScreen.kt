@@ -21,7 +21,6 @@ import kotlinx.coroutines.delay
 fun MaracasScreen() {
     val context = LocalContext.current
     val world = remember { PhysicsWorld() }
-//    val particles = remember { mutableStateListOf<Particle>() }
     val scale = 50f
 
     val density = LocalDensity.current
